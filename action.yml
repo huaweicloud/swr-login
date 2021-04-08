@@ -1,4 +1,4 @@
-name: 'HuaweiCLoud Software Repository for Container (SWR) Login'
+name: 'Huawei CLoud Software Repository for Container (SWR) Login'
 description: 'Log in to a container registry'
 inputs:
   access-key-id:
