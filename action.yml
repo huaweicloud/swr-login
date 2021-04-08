@@ -1,0 +1,21 @@
+name: 'HuaweiCLoud Software Repository for Container (SWR) Login'
+description: 'Log in to a container registry'
+inputs:
+  access-key-id:
+    description: 'Access key id'
+    required: true
+    default: ''
+  access-key-secret:
+    description: 'Secret access key'
+    required: true
+    default: ''
+  region:
+    description: 'Region'
+    required: false
+    default: 'ap-southeast-3'
+branding:
+  color: 'green'
+  icon: 'anchor'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

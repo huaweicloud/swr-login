@@ -1,0 +1,4 @@
+# Ignore built ts files
+__tests__/runner/*
+lib/**/*
+node_modules/
