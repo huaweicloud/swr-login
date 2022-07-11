@@ -1,4 +1,6 @@
-# Ignore built ts files
-__tests__/runner/*
-lib/**/*
-node_modules/
+node_modules
+package-lock.json
+coverage/
+.vscode/
+HuaweiCloud-SDK-Access.*
+lib/
