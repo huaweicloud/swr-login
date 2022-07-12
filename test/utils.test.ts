@@ -85,7 +85,7 @@ describe('test whether the aksk parameter is valid', () => {
       {
         description: 'aksk合法和region不合法',
         input: {
-          accessKey: '1234567890&*',
+          accessKey: '1234567890',
           secretKey: '123456789012345678901234567890',
           region: 'cndddd'
         },
