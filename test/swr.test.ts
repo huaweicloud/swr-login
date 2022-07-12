@@ -35,6 +35,9 @@ jest.mock('@huaweicloud/huaweicloud-sdk-swr', () => {
 
 
  describe('test swr create secret', () => {
+    beforeEach(() => {
+        jest.clearAllMocks();
+      });
     test('test create secret when httpStatusCode is 200', async () => {
         mockCreateSecret.mockImplementation(() => {
             return {
