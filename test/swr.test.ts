@@ -52,7 +52,9 @@ describe('test swr create secret', () => {
             secretKey: '123456789012345678901234567890',
             region: 'cn-north-4'
         };
-        expect(await swr.createSecret(input)).toBe('{"auths":{"swr.cn-north-4.myhuaweicloud.com":{"auth":"auth"}}}');
+        expect(await swr.createSecret(input)).toBe(
+            '{"auths":{"swr.cn-north-4.myhuaweicloud.com":{"auth":"auth"}}}'
+        );
         expect(mockWithSk).toHaveBeenCalled();
     });
 
