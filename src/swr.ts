@@ -9,19 +9,19 @@ import * as swr from '@huaweicloud/huaweicloud-sdk-swr';
  * @param
  * @returns
  */
-export async function createSecret(inputs: context.Inputs) {
+export async function createSecret(inputs: context.Inputs): Promise<string> {
     const credentials = new huaweicore.BasicCredentials()
-                     .withAk(inputs.accessKey)
-                     .withSk(inputs.secretKey)
+        .withAk(inputs.accessKey)
+        .withSk(inputs.secretKey);
     const client = swr.SwrClient.newBuilder()
-                                .withCredential(credentials)
-                                .withEndpoint(`https://swr-api.${inputs.region}.myhuaweicloud.com`)
-                                .build();
+        .withCredential(credentials)
+        .withEndpoint(`https://swr-api.${inputs.region}.myhuaweicloud.com`)
+        .build();
     const request = new swr.CreateSecretRequest();
     request.projectname = inputs.region;
     const result = await client.createSecret(request);
     if (result.httpStatusCode != 200) {
         core.setFailed('Get SWR Secret Failed.');
     }
-    return {auths: result.auths};
+    return JSON.stringify({auths: result.auths});
 }

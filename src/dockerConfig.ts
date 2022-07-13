@@ -6,15 +6,17 @@ import * as os from 'os';
 
 /**
  * 设置DOCKER_CONFIG环境变量
- * @param dockerConfig 
+ * @param dockerConfig
  */
-export async function setDockerEnv(dockerConfig: any) {
+export async function setDockerEnv(dockerConfig: string) {
     // Using process.env until the core libs are updated
-    const runnerTempDirectory = !!process.env.RUNNER_TEMP ? `${process.env.RUNNER_TEMP}` : os.homedir(); 
+    const runnerTempDirectory = process.env.RUNNER_TEMP
+        ? `${process.env.RUNNER_TEMP}`
+        : os.homedir();
     const dirPath = path.join(runnerTempDirectory, `docker_login_${Date.now()}`);
     await io.mkdirP(dirPath);
     const dockerConfigPath = path.join(dirPath, `config.json`);
-    fs.writeFileSync(dockerConfigPath, JSON.stringify(dockerConfig));
+    fs.writeFileSync(dockerConfigPath, dockerConfig);
 
     // Set DOCKER_CONFIG environment variable and set it as secrets.
     core.setSecret(dirPath);

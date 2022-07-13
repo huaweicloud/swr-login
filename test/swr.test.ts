@@ -32,50 +32,49 @@ jest.mock('@huaweicloud/huaweicloud-sdk-swr', () => {
     };
 });
 
-
-
- describe('test swr create secret', () => {
+describe('test swr create secret', () => {
     beforeEach(() => {
         jest.clearAllMocks();
-      });
+    });
     test('test create secret when httpStatusCode is 200', async () => {
         mockCreateSecret.mockImplementation(() => {
             return {
                 auths: {
                     'swr.cn-north-4.myhuaweicloud.com': {
-                      auth: 'auth'
+                        auth: 'auth'
                     }
-                  },
+                },
                 httpStatusCode: 200
-            }
+            };
         });
         const input = {
             accessKey: '1234567890&*',
             secretKey: '123456789012345678901234567890',
             region: 'cn-north-4'
-          };
-        expect(await swr.createSecret(input)).toEqual({"auths": {"swr.cn-north-4.myhuaweicloud.com": {"auth": "auth"}}});
+        };
+        expect(await swr.createSecret(input)).toEqual({
+            auths: {'swr.cn-north-4.myhuaweicloud.com': {auth: 'auth'}}
+        });
         expect(mockWithSk).toHaveBeenCalled();
-     });
-    
-     test('test create secret when httpStatusCode is not 200', async () => {
+    });
+
+    test('test create secret when httpStatusCode is not 200', async () => {
         mockCreateSecret.mockImplementation(() => {
             return {
                 auths: {
                     'swr.cn-north-4.myhuaweicloud.com': {
-                      auth: 'auth'
+                        auth: 'auth'
                     }
-                  },
+                },
                 httpStatusCode: 404
-            }
+            };
         });
         const input = {
             accessKey: '1234567890&*',
             secretKey: '123456789012345678901234567890',
             region: 'cn-north-4'
-          };
+        };
         await swr.createSecret(input);
         expect(core.setFailed).toHaveBeenCalledTimes(1);
-     });
- }
- );
+    });
+});

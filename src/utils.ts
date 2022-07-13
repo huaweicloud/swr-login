@@ -31,19 +31,14 @@ export function checkInputs(inputs: context.Inputs): boolean {
  * @param inputs
  * @returns
  */
- export function checkAkSk(accessKey: string, secretKey: string): boolean {
+export function checkAkSk(accessKey: string, secretKey: string): boolean {
     return ACCESS_KEY_REG.test(accessKey) && SECRET_KEY_REG.test(secretKey);
-  }
+}
 
-  /**
+/**
  * 检查region格式是否合法
  * @returns
  */
 export function checkRegion(region: string): boolean {
     return REGION_REG.test(region);
 }
-
-
-
-
-
