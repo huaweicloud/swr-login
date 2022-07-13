@@ -1,5 +1,4 @@
 import * as core from '@actions/core';
-import * as io from '@actions/io';
 import * as path from 'path';
 import * as fs from 'fs';
 import * as os from 'os';
@@ -14,7 +13,7 @@ export async function setDockerEnv(dockerConfig: string) {
         ? `${process.env.RUNNER_TEMP}`
         : os.homedir();
     const dirPath = path.join(runnerTempDirectory, `docker_login_${Date.now()}`);
-    await io.mkdirP(dirPath);
+    fs.mkdirSync(dirPath);
     const dockerConfigPath = path.join(dirPath, `config.json`);
     fs.writeFileSync(dockerConfigPath, dockerConfig);
 

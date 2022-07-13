@@ -31,8 +31,8 @@
   },
   "homepage": "https://github.com/huaweicloud/swr-login#readme",
   "dependencies": {
-    "@actions/core": "^1.2.6",
-    "@actions/io": "^1.0.2",
+    "@actions/core": "^1.9.0",
+    "@actions/io": "^1.1.2",
     "@huaweicloud/huaweicloud-sdk-core": "^3.0.48-rc",
     "@huaweicloud/huaweicloud-sdk-swr": "^3.0.48-rc",
     "axios": "^0.21.1",
