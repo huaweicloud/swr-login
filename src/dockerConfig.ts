@@ -9,9 +9,7 @@ import * as os from 'os';
  */
 export async function setDockerEnv(dockerConfig: string) {
     // Using process.env until the core libs are updated
-    const runnerTempDirectory = process.env.RUNNER_TEMP
-        ? `${process.env.RUNNER_TEMP}`
-        : os.homedir();
+    const runnerTempDirectory = process.env.RUNNER_TEMP ?? os.homedir();
     const dirPath = path.join(runnerTempDirectory, `docker_login_${Date.now()}`);
     fs.mkdirSync(dirPath);
     const dockerConfigPath = path.join(dirPath, `config.json`);

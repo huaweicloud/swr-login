@@ -22,7 +22,6 @@ export function checkInputs(inputs: context.Inputs): boolean {
         return false;
     }
 
-    core.info('The pypi-operation-type value can only be install or upload');
     return true;
 }
 
