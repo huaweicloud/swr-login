@@ -1,5 +1,8 @@
 import * as core from '@actions/core';
 
+export const CUSTOM_USER_AGENT =
+    'DevKit-GitHub:Huawei Cloud Software Repository for Container (SWR) Login';
+
 export interface Inputs {
     accessKey: string;
     secretKey: string;
@@ -13,6 +16,3 @@ export function getInputs(): Inputs {
         region: core.getInput('region', {required: true})
     };
 }
-
-export const CUSTOM_USER_AGENT =
-    'DevKit-GitHub:Huawei Cloud Software Repository for Container (SWR) Login';

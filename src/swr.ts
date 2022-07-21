@@ -16,6 +16,7 @@ export async function createSecret(inputs: context.Inputs): Promise<string> {
     const client = swr.SwrClient.newBuilder()
         .withCredential(credentials)
         .withEndpoint(`https://swr-api.${inputs.region}.myhuaweicloud.com`)
+        .withOptions({customUserAgent: context.CUSTOM_USER_AGENT})
         .build();
     const request = new swr.CreateSecretRequest();
     request.projectname = inputs.region;

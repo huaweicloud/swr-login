@@ -31,8 +31,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.CUSTOM_USER_AGENT = exports.getInputs = void 0;
+exports.getInputs = exports.CUSTOM_USER_AGENT = void 0;
 const core = __importStar(__webpack_require__(2186));
+exports.CUSTOM_USER_AGENT = 'DevKit-GitHub:Huawei Cloud Software Repository for Container (SWR) Login';
 function getInputs() {
     return {
         accessKey: core.getInput('access-key-id', { required: true }),
@@ -41,7 +42,6 @@ function getInputs() {
     };
 }
 exports.getInputs = getInputs;
-exports.CUSTOM_USER_AGENT = 'DevKit-GitHub:Huawei Cloud Software Repository for Container (SWR) Login';
 //# sourceMappingURL=context.js.map
 
 /***/ }),
@@ -94,11 +94,10 @@ const os = __importStar(__webpack_require__(2087));
  * @param dockerConfig
  */
 function setDockerEnv(dockerConfig) {
+    var _a;
     return __awaiter(this, void 0, void 0, function* () {
         // Using process.env until the core libs are updated
-        const runnerTempDirectory = process.env.RUNNER_TEMP
-            ? `${process.env.RUNNER_TEMP}`
-            : os.homedir();
+        const runnerTempDirectory = (_a = process.env.RUNNER_TEMP) !== null && _a !== void 0 ? _a : os.homedir();
         const dirPath = path.join(runnerTempDirectory, `docker_login_${Date.now()}`);
         fs.mkdirSync(dirPath);
         const dockerConfigPath = path.join(dirPath, `config.json`);
@@ -215,6 +214,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.createSecret = void 0;
 const core = __importStar(__webpack_require__(2186));
+const context = __importStar(__webpack_require__(3842));
 const huaweicore = __importStar(__webpack_require__(4820));
 const swr = __importStar(__webpack_require__(8687));
 /**
@@ -230,6 +230,7 @@ function createSecret(inputs) {
         const client = swr.SwrClient.newBuilder()
             .withCredential(credentials)
             .withEndpoint(`https://swr-api.${inputs.region}.myhuaweicloud.com`)
+            .withOptions({ customUserAgent: context.CUSTOM_USER_AGENT })
             .build();
         const request = new swr.CreateSecretRequest();
         request.projectname = inputs.region;
@@ -294,7 +295,6 @@ function checkInputs(inputs) {
         core.info('region is not correct.');
         return false;
     }
-    core.info('The pypi-operation-type value can only be install or upload');
     return true;
 }
 exports.checkInputs = checkInputs;

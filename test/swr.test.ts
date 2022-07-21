@@ -21,9 +21,12 @@ jest.mock('@huaweicloud/huaweicloud-sdk-swr', () => {
             newBuilder: jest.fn(() => ({
                 withCredential: jest.fn(() => ({
                     withEndpoint: jest.fn(() => ({
-                        build: jest.fn(() => ({
-                            createSecret: mockCreateSecret
+                        withOptions: jest.fn(() => ({
+                            build: jest.fn(() => ({
+                                createSecret: mockCreateSecret
+                            }))
                         }))
+                        
                     }))
                 }))
             }))

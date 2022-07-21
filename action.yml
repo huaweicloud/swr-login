@@ -4,15 +4,12 @@ inputs:
   access-key-id:
     description: 'Access key id'
     required: true
-    default: ''
   access-key-secret:
     description: 'Secret access key'
     required: true
-    default: ''
   region:
     description: 'Region'
-    required: false
-    default: 'ap-southeast-3'
+    required: true
 branding:
   icon: 'cloud'
   color: 'red'
