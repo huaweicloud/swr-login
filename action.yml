@@ -1,21 +1,18 @@
-name: 'Huawei CLoud Software Repository for Container (SWR) Login'
-description: 'Log in to a container registry'
+name: 'Huawei Cloud Software Repository for Container (SWR) Login'
+description: 'Log in to Huawei Cloud Software Repository for Container (SWR)'
 inputs:
   access-key-id:
     description: 'Access key id'
     required: true
-    default: ''
   access-key-secret:
     description: 'Secret access key'
     required: true
-    default: ''
   region:
     description: 'Region'
-    required: false
-    default: 'ap-southeast-3'
+    required: true
 branding:
-  color: 'green'
-  icon: 'anchor'
+  icon: 'cloud'
+  color: 'red'
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'dist/index.js'
