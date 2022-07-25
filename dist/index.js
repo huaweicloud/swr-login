@@ -235,7 +235,7 @@ function createSecret(inputs) {
         const request = new swr.CreateSecretRequest();
         request.projectname = inputs.region;
         const result = yield client.createSecret(request);
-        if (result.httpStatusCode != 200) {
+        if (result.httpStatusCode !== 200) {
             core.setFailed('Get SWR Secret Failed.');
         }
         return JSON.stringify({ auths: result.auths });
