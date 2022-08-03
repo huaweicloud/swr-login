@@ -1,323 +1,6 @@
-require('./sourcemap-register.js');module.exports =
+module.exports =
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
-
-/***/ 3842:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.getInputs = exports.CUSTOM_USER_AGENT = void 0;
-const core = __importStar(__webpack_require__(2186));
-exports.CUSTOM_USER_AGENT = 'DevKit-GitHub:Huawei Cloud Software Repository for Container (SWR) Login';
-function getInputs() {
-    return {
-        accessKey: core.getInput('access-key-id', { required: true }),
-        secretKey: core.getInput('access-key-secret', { required: true }),
-        region: core.getInput('region', { required: true })
-    };
-}
-exports.getInputs = getInputs;
-//# sourceMappingURL=context.js.map
-
-/***/ }),
-
-/***/ 5644:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.setDockerEnv = void 0;
-const core = __importStar(__webpack_require__(2186));
-const path = __importStar(__webpack_require__(5622));
-const fs = __importStar(__webpack_require__(5747));
-const os = __importStar(__webpack_require__(2087));
-/**
- * 设置DOCKER_CONFIG环境变量
- * @param dockerConfig
- */
-function setDockerEnv(dockerConfig) {
-    var _a;
-    return __awaiter(this, void 0, void 0, function* () {
-        // Using process.env until the core libs are updated
-        const runnerTempDirectory = (_a = process.env.RUNNER_TEMP) !== null && _a !== void 0 ? _a : os.homedir();
-        const dirPath = path.join(runnerTempDirectory, `docker_login_${Date.now()}`);
-        fs.mkdirSync(dirPath);
-        const dockerConfigPath = path.join(dirPath, `config.json`);
-        fs.writeFileSync(dockerConfigPath, dockerConfig);
-        // Set DOCKER_CONFIG environment variable and set it as secrets.
-        core.setSecret(dirPath);
-        core.exportVariable('DOCKER_CONFIG', dirPath);
-        core.info('DOCKER_CONFIG environment variable is set');
-    });
-}
-exports.setDockerEnv = setDockerEnv;
-//# sourceMappingURL=dockerConfig.js.map
-
-/***/ }),
-
-/***/ 3109:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.run = void 0;
-const core = __importStar(__webpack_require__(2186));
-const context = __importStar(__webpack_require__(3842));
-const utils = __importStar(__webpack_require__(918));
-const swr = __importStar(__webpack_require__(7817));
-const docker = __importStar(__webpack_require__(5644));
-function run() {
-    return __awaiter(this, void 0, void 0, function* () {
-        const inputs = context.getInputs();
-        // 如果参数输入有问题，终止操作
-        if (!utils.checkInputs(inputs)) {
-            core.setFailed('input parameters is not correct.');
-            return;
-        }
-        docker.setDockerEnv(yield swr.createSecret(inputs));
-    });
-}
-exports.run = run;
-run().catch(core.setFailed);
-//# sourceMappingURL=main.js.map
-
-/***/ }),
-
-/***/ 7817:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.createSecret = void 0;
-const core = __importStar(__webpack_require__(2186));
-const context = __importStar(__webpack_require__(3842));
-const huaweicore = __importStar(__webpack_require__(4820));
-const swr = __importStar(__webpack_require__(8687));
-/**
- * 获取swr临时登录指令
- * @param
- * @returns
- */
-function createSecret(inputs) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const credentials = new huaweicore.BasicCredentials()
-            .withAk(inputs.accessKey)
-            .withSk(inputs.secretKey);
-        const client = swr.SwrClient.newBuilder()
-            .withCredential(credentials)
-            .withEndpoint(`https://swr-api.${inputs.region}.myhuaweicloud.com`)
-            .withOptions({ customUserAgent: context.CUSTOM_USER_AGENT })
-            .build();
-        const request = new swr.CreateSecretRequest();
-        request.projectname = inputs.region;
-        const result = yield client.createSecret(request);
-        if (result.httpStatusCode !== 200) {
-            core.setFailed('Get SWR Secret Failed.');
-        }
-        return JSON.stringify({ auths: result.auths });
-    });
-}
-exports.createSecret = createSecret;
-//# sourceMappingURL=swr.js.map
-
-/***/ }),
-
-/***/ 918:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.checkRegion = exports.checkAkSk = exports.checkInputs = void 0;
-const core = __importStar(__webpack_require__(2186));
-// 正则校验表达式
-const ACCESS_KEY_REG = RegExp(/^[a-zA-Z0-9]{10,30}$/);
-const SECRET_KEY_REG = RegExp(/^[a-zA-Z0-9]{30,50}$/);
-const REGION_REG = RegExp(/^[a-zA-Z0-9]{1,5}-[a-zA-Z0-9]+-[1-9]$/);
-/**
- * 检查每个inputs 属性value是否合法
- * @param inputs
- * @returns
- */
-function checkInputs(inputs) {
-    if (!checkAkSk(inputs.accessKey, inputs.secretKey)) {
-        core.info('ak or sk is not correct.');
-        return false;
-    }
-    if (!checkRegion(inputs.region)) {
-        core.info('region is not correct.');
-        return false;
-    }
-    return true;
-}
-exports.checkInputs = checkInputs;
-/**
- * 检查aksk是否合法
- * @param inputs
- * @returns
- */
-function checkAkSk(accessKey, secretKey) {
-    return ACCESS_KEY_REG.test(accessKey) && SECRET_KEY_REG.test(secretKey);
-}
-exports.checkAkSk = checkAkSk;
-/**
- * 检查region格式是否合法
- * @returns
- */
-function checkRegion(region) {
-    return REGION_REG.test(region);
-}
-exports.checkRegion = checkRegion;
-//# sourceMappingURL=utils.js.map
-
-/***/ }),
 
 /***/ 7351:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
@@ -49572,6 +49255,340 @@ exports.fromPromise = function (fn) {
 
 /***/ }),
 
+/***/ 8954:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.getInputs = exports.CUSTOM_USER_AGENT = void 0;
+const core = __importStar(__webpack_require__(2186));
+exports.CUSTOM_USER_AGENT = 'DevKit-GitHub:Huawei Cloud Software Repository for Container (SWR) Login';
+function getInputs() {
+    return {
+        accessKey: core.getInput('access-key-id', { required: true }),
+        secretKey: core.getInput('access-key-secret', { required: true }),
+        region: core.getInput('region', { required: true })
+    };
+}
+exports.getInputs = getInputs;
+
+
+/***/ }),
+
+/***/ 8020:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.setDockerEnv = void 0;
+const core = __importStar(__webpack_require__(2186));
+const path = __importStar(__webpack_require__(5622));
+const fs = __importStar(__webpack_require__(5747));
+const os = __importStar(__webpack_require__(2087));
+/**
+ * 设置DOCKER_CONFIG环境变量
+ * @param dockerConfig
+ */
+function setDockerEnv(dockerConfig) {
+    var _a;
+    return __awaiter(this, void 0, void 0, function* () {
+        // Using process.env until the core libs are updated
+        const runnerTempDirectory = (_a = process.env.RUNNER_TEMP) !== null && _a !== void 0 ? _a : os.homedir();
+        const dirPath = path.join(runnerTempDirectory, `docker_login_${Date.now()}`);
+        fs.mkdirSync(dirPath);
+        const dockerConfigPath = path.join(dirPath, `config.json`);
+        fs.writeFileSync(dockerConfigPath, dockerConfig);
+        // Set DOCKER_CONFIG environment variable and set it as secrets.
+        core.setSecret(dirPath);
+        core.exportVariable('DOCKER_CONFIG', dirPath);
+        core.info('DOCKER_CONFIG environment variable is set');
+    });
+}
+exports.setDockerEnv = setDockerEnv;
+
+
+/***/ }),
+
+/***/ 399:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.run = void 0;
+const core = __importStar(__webpack_require__(2186));
+const context = __importStar(__webpack_require__(8954));
+const utils = __importStar(__webpack_require__(1314));
+const swr = __importStar(__webpack_require__(7397));
+const docker = __importStar(__webpack_require__(8020));
+function run() {
+    return __awaiter(this, void 0, void 0, function* () {
+        const inputs = context.getInputs();
+        // 如果参数输入有问题，终止操作
+        if (!utils.checkInputs(inputs)) {
+            core.setFailed('input parameters is not correct.');
+            return;
+        }
+        docker.setDockerEnv(yield swr.createSecret(inputs));
+    });
+}
+exports.run = run;
+run().catch(core.setFailed);
+
+
+/***/ }),
+
+/***/ 7397:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.createSecret = void 0;
+const core = __importStar(__webpack_require__(2186));
+const context = __importStar(__webpack_require__(8954));
+const huaweicore = __importStar(__webpack_require__(4820));
+const swr = __importStar(__webpack_require__(8687));
+/**
+ * 获取swr临时登录指令
+ * @param
+ * @returns
+ */
+function createSecret(inputs) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const credentials = new huaweicore.BasicCredentials()
+            .withAk(inputs.accessKey)
+            .withSk(inputs.secretKey);
+        const client = swr.SwrClient.newBuilder()
+            .withCredential(credentials)
+            .withEndpoint(`https://swr-api.${inputs.region}.myhuaweicloud.com`)
+            .withOptions({ customUserAgent: context.CUSTOM_USER_AGENT })
+            .build();
+        const request = new swr.CreateSecretRequest();
+        request.projectname = inputs.region;
+        try {
+            const result = yield client.createSecret(request);
+            if (result.httpStatusCode !== 200) {
+                core.setFailed('Get SWR Secret Request Failed.');
+            }
+            return JSON.stringify({ auths: result.auths });
+        }
+        catch (error) {
+            throw new Error('Get SWR Secret Failed.');
+        }
+    });
+}
+exports.createSecret = createSecret;
+
+
+/***/ }),
+
+/***/ 1314:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.checkRegion = exports.checkAkSk = exports.checkInputs = void 0;
+const core = __importStar(__webpack_require__(2186));
+// 正则校验表达式
+const ACCESS_KEY_REG = RegExp(/^[a-zA-Z0-9]{10,30}$/);
+const SECRET_KEY_REG = RegExp(/^[a-zA-Z0-9]{30,50}$/);
+/**
+ * 目前支持region列表
+ */
+const regionArray = [
+    'cn-north-1',
+    'cn-north-2',
+    'cn-north-4',
+    'cn-east-2',
+    'cn-east-3',
+    'cn-south-1',
+    'cn-south-2',
+    'cn-southwest-2'
+];
+/**
+ * 检查每个inputs 属性value是否合法
+ * @param inputs
+ * @returns
+ */
+function checkInputs(inputs) {
+    if (!checkAkSk(inputs.accessKey, inputs.secretKey)) {
+        core.info('ak or sk is not correct.');
+        return false;
+    }
+    if (!checkRegion(inputs.region)) {
+        core.info('region is not supported.');
+        return false;
+    }
+    return true;
+}
+exports.checkInputs = checkInputs;
+/**
+ * 检查aksk是否合法
+ * @param inputs
+ * @returns
+ */
+function checkAkSk(accessKey, secretKey) {
+    return ACCESS_KEY_REG.test(accessKey) && SECRET_KEY_REG.test(secretKey);
+}
+exports.checkAkSk = checkAkSk;
+/**
+ * 检查region格式是否合法
+ * @returns
+ */
+function checkRegion(region) {
+    return regionArray.includes(region);
+}
+exports.checkRegion = checkRegion;
+
+
+/***/ }),
+
 /***/ 696:
 /***/ ((module) => {
 
@@ -49774,7 +49791,6 @@ module.exports = require("zlib");
 /******/ 	// module exports must be returned from runtime so entry inlining is disabled
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(3109);
+/******/ 	return __webpack_require__(399);
 /******/ })()
 ;
-//# sourceMappingURL=index.js.map
