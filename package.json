@@ -1,11 +1,11 @@
 {
   "name": "swr-login",
-  "version": "1.0.0",
-  "main": "lib/main.js",
+  "version": "v2.0.1",
+  "main": "src/main.ts",
   "scripts": {
     "build": "tsc",
     "run": "node ./lib/main.js",
-    "package": "ncc build --source-map --license licenses.txt",
+    "package": "ncc build --license licenses.txt",
     "lint-create": "eslint --init",
     "lint": "eslint src",
     "format": "prettier --write **/*.ts",
@@ -21,15 +21,6 @@
     "github",
     "swr"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/huaweicloud/swr-login.git"
-  },
-  "license": "Apache",
-  "bugs": {
-    "url": "https://github.com/huaweicloud/swr-login/issues"
-  },
-  "homepage": "https://github.com/huaweicloud/swr-login#readme",
   "dependencies": {
     "@actions/core": "^1.9.0",
     "@actions/io": "^1.1.2",

@@ -21,3 +21,17 @@
     region: '<region id>'  # example: cn-north-4
 ```
 详情可参考 [swr-login-workflow-samples](https://github.com/huaweicloud/swr-login-workflow-samples)
+
+
+## Action中使用的公网地址说明
+本action是华为云SWR鉴权, 根据用户使用region参数涉及到对应region的华为云iam服务终端节点的公网域名
+```
+1. 华北-北京一	    https://swr-api.cn-north-1.myhuaweicloud.com	
+2. 华北-北京二	    https://swr-api.cn-north-2.myhuaweicloud.com		
+3. 华北-北京四	    https://swr-api.cn-north-4.myhuaweicloud.com
+4. 华东-上海二	    https://swr-api.cn-east-2.myhuaweicloud.com	
+5. 华东-上海一	    https://swr-api.cn-east-3.myhuaweicloud.com
+6. 华南-广州	      https://swr-api.cn-south-1.myhuaweicloud.com	
+7. 华南-深圳	      https://swr-api.cn-south-2.myhuaweicloud.com	
+8. 西南-贵阳一	    https://swr-api.cn-southwest-2.myhuaweicloud.com
+```

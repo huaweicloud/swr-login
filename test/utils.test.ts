@@ -47,7 +47,15 @@ describe('test whether the aksk parameter is valid', () => {
 
 describe('test whether the region parameter is valid', () => {
     const testCase = [
+        {region: 'cn-north-1', result: true},
+        {region: 'cn-north-2', result: true},
         {region: 'cn-north-4', result: true},
+        {region: 'cn-east-2', result: true},
+        {region: 'cn-east-3', result: true},
+        {region: 'cn-south-1', result: true},
+        {region: 'cn-south-2', result: true},
+        {region: 'cn-southwest-2', result: true},
+        {region: 'af-south-1', result: false},
         {region: 'cnnorth1', result: false},
         {region: 'ap-southeastst', result: false},
         {region: 'cnnorth-north-4', result: false},
