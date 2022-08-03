@@ -24,7 +24,7 @@
 
 
 ## Action中使用的公网地址说明
-本action是华为云SWR鉴权, 根据用户使用region参数涉及到对应region的华为云iam服务终端节点的公网域名
+本action是华为云SWR鉴权, 根据用户使用region参数涉及到对应region的华为云swr服务终端节点的公网域名
 ```
 1. 华北-北京一	    https://swr-api.cn-north-1.myhuaweicloud.com	
 2. 华北-北京二	    https://swr-api.cn-north-2.myhuaweicloud.com		

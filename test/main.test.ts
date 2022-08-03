@@ -23,7 +23,7 @@ test('mock checkInputs return true', async () => {
     expect(swr.createSecret).toHaveBeenCalledTimes(1);
 
     expect(docker.setDockerEnv).toHaveBeenCalled();
-    expect(docker.setDockerEnv).toHaveBeenCalledTimes(2);
+    expect(docker.setDockerEnv).toHaveBeenCalledTimes(1);
 });
 
 test('mock checkInputs return false', async () => {

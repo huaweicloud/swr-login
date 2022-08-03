@@ -4,7 +4,6 @@
   "main": "src/main.ts",
   "scripts": {
     "build": "tsc",
-    "run": "node ./lib/main.js",
     "package": "ncc build --license licenses.txt",
     "lint-create": "eslint --init",
     "lint": "eslint src",
