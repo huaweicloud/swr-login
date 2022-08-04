@@ -24,16 +24,13 @@
     "@actions/core": "^1.9.0",
     "@actions/io": "^1.1.2",
     "@huaweicloud/huaweicloud-sdk-core": "^3.0.48-rc",
-    "@huaweicloud/huaweicloud-sdk-swr": "^3.0.48-rc",
-    "axios": "^0.21.1",
-    "moment": "^2.29.1",
-    "moment-timezone": "^0.5.32"
+    "@huaweicloud/huaweicloud-sdk-swr": "^3.0.48-rc"
   },
   "devDependencies": {
     "@types/jest": "^28.1.4",
     "@typescript-eslint/eslint-plugin": "^5.30.5",
     "@typescript-eslint/parser": "^5.30.5",
-    "@vercel/ncc": "^0.24.1",
+    "@vercel/ncc": "^0.34.0",
     "eslint": "^7.32.0",
     "jest": "^28.1.2",
     "prettier": "2.7.1",
