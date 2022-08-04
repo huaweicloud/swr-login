@@ -24,4 +24,4 @@
 
 
 ## Action中使用的公网地址说明
-本action是华为云SWR鉴权, 使用过程会调用华为云的OpenAPI,涉及到的公网域名可到华为云[地区和终端节点](https://developer.huaweicloud.com/endpoint?all)根据产品名称和区域查看对接的华为云终端节点公网域名。
+本action是华为云SWR鉴权，使用过程会调用华为云的OpenAPI，涉及到的公网域名可到华为云[地区和终端节点](https://developer.huaweicloud.com/endpoint?all)查看。
