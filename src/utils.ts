@@ -5,19 +5,7 @@ import * as context from './context';
 const ACCESS_KEY_REG = RegExp(/^[a-zA-Z0-9]{10,30}$/);
 const SECRET_KEY_REG = RegExp(/^[a-zA-Z0-9]{30,50}$/);
 
-/**
- * 目前支持region列表
- */
-const regionArray: string[] = [
-    'cn-north-1',
-    'cn-north-2',
-    'cn-north-4',
-    'cn-east-2',
-    'cn-east-3',
-    'cn-south-1',
-    'cn-south-2',
-    'cn-southwest-2'
-];
+const REGION_REG = RegExp(/^[a-zA-Z0-9]{1,5}-[a-zA-Z0-9]+-[1-9]$/);
 
 /**
  * 检查每个inputs 属性value是否合法
@@ -30,7 +18,7 @@ export function checkInputs(inputs: context.Inputs): boolean {
         return false;
     }
     if (!checkRegion(inputs.region)) {
-        core.info('region is not supported.');
+        core.info('region is not correct.');
         return false;
     }
 
@@ -51,5 +39,5 @@ export function checkAkSk(accessKey: string, secretKey: string): boolean {
  * @returns
  */
 export function checkRegion(region: string): boolean {
-    return regionArray.includes(region);
+    return REGION_REG.test(region);
 }
