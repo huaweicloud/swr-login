@@ -14,7 +14,6 @@ test('test set docker environment variable when RUNNER_TEMP exists', async () =>
     expect(core.info).toHaveBeenCalledTimes(1);
 });
 
-
 test('test set docker environment variable when RUNNER_TEMP does not exist', async () => {
     await docker.setDockerEnv('test');
     expect(core.info).toHaveBeenCalledTimes(1);

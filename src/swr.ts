@@ -20,9 +20,13 @@ export async function createSecret(inputs: context.Inputs): Promise<string> {
         .build();
     const request = new swr.CreateSecretRequest();
     request.projectname = inputs.region;
-    const result = await client.createSecret(request);
-    if (result.httpStatusCode !== 200) {
-        core.setFailed('Get SWR Secret Failed.');
+    try {
+        const result = await client.createSecret(request);
+        if (result.httpStatusCode !== 200) {
+            core.setFailed('Get SWR Secret Request Failed.');
+        }
+        return JSON.stringify({auths: result.auths});
+    } catch (error) {
+        throw new Error('Get SWR Secret Failed.');
     }
-    return JSON.stringify({auths: result.auths});
 }
