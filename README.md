@@ -14,7 +14,7 @@
 ## 参考实例
 
 ```yaml
-- uses: huaweicloud/swr-login@v2.0.0
+- uses: huaweicloud/swr-login@v2.1.0
   with:
     access-key-id: ${{ secrets.ACCESSKEY }} 
     access-key-secret: ${{ secrets.SECRETACCESSKEY }}
