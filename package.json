@@ -1,18 +1,17 @@
 {
   "name": "swr-login",
-  "version": "1.0.0",
-  "main": "lib/main.js",
+  "version": "v2.0.1",
+  "main": "src/main.ts",
   "scripts": {
     "build": "tsc",
-    "run": "node ./lib/main.js",
-    "package": "ncc build --source-map --license licenses.txt",
+    "package": "ncc build -m --license licenses.txt",
     "lint-create": "eslint --init",
     "lint": "eslint src",
     "format": "prettier --write **/*.ts",
     "format-check": "prettier --check **/*.ts",
     "test": "jest --collectCoverage",
     "debug": "ts-node-dev src/main.ts",
-    "all": "npm run lint && npm run format && npm run build && npm run package"
+    "all": "npm run test && npm run lint && npm run format && npm run build && npm run package"
   },
   "keywords": [
     "actions",
@@ -21,29 +20,17 @@
     "github",
     "swr"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/huaweicloud/swr-login.git"
-  },
-  "license": "Apache",
-  "bugs": {
-    "url": "https://github.com/huaweicloud/swr-login/issues"
-  },
-  "homepage": "https://github.com/huaweicloud/swr-login#readme",
   "dependencies": {
     "@actions/core": "^1.9.0",
     "@actions/io": "^1.1.2",
     "@huaweicloud/huaweicloud-sdk-core": "^3.0.48-rc",
-    "@huaweicloud/huaweicloud-sdk-swr": "^3.0.48-rc",
-    "axios": "^0.21.1",
-    "moment": "^2.29.1",
-    "moment-timezone": "^0.5.32"
+    "@huaweicloud/huaweicloud-sdk-swr": "^3.0.48-rc"
   },
   "devDependencies": {
     "@types/jest": "^28.1.4",
     "@typescript-eslint/eslint-plugin": "^5.30.5",
     "@typescript-eslint/parser": "^5.30.5",
-    "@vercel/ncc": "^0.24.1",
+    "@vercel/ncc": "^0.34.0",
     "eslint": "^7.32.0",
     "jest": "^28.1.2",
     "prettier": "2.7.1",

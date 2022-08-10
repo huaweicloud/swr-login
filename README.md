@@ -14,10 +14,14 @@
 ## 参考实例
 
 ```yaml
-- uses: huaweicloud/swr-login@v2.0.0
+- uses: huaweicloud/swr-login@v2.1.0
   with:
     access-key-id: ${{ secrets.ACCESSKEY }} 
     access-key-secret: ${{ secrets.SECRETACCESSKEY }}
     region: '<region id>'  # example: cn-north-4
 ```
 详情可参考 [swr-login-workflow-samples](https://github.com/huaweicloud/swr-login-workflow-samples)
+
+
+## Action中使用的公网地址说明
+本action是华为云SWR鉴权，使用过程会调用华为云的OpenAPI，涉及到的公网域名可到华为云[地区和终端节点](https://developer.huaweicloud.com/endpoint?all)查看。

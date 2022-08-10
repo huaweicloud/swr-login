@@ -26,7 +26,6 @@ jest.mock('@huaweicloud/huaweicloud-sdk-swr', () => {
                                 createSecret: mockCreateSecret
                             }))
                         }))
-                        
                     }))
                 }))
             }))
@@ -79,5 +78,17 @@ describe('test swr create secret', () => {
         };
         await swr.createSecret(input);
         expect(core.setFailed).toHaveBeenCalledTimes(1);
+    });
+
+    test('test create secret project when throw error', async () => {
+        mockCreateSecret.mockImplementation(() => {
+            throw new Error('Server Error.');
+        });
+        const input = {
+            accessKey: '123456789012',
+            secretKey: '123456789012345678901234567890',
+            region: 'cn-north-4'
+        };
+        await expect(swr.createSecret(input)).rejects.toThrow('Get SWR Secret Failed.');
     });
 });
